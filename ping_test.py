@@ -1,10 +1,6 @@
 import subprocess as sub
-import os
 import tkinter as tk
 from tkinter import *
-import time
-import threading as thr
-
 
 class test (tk.Tk):
     def ping(self):
@@ -12,17 +8,16 @@ class test (tk.Tk):
         self.withdraw()
         result=sub.Popen(["ping", "-n", "1", "-w", "1000", conf_ip.get()],shell=True).wait()
         if result == 0:
-          print ('Active')
+          # print ('Active')
           B = btn_ping
           B ['bg'] = 'green'
         else:
-          print ('Inactive')
+          # print ('Inactive')
           B = btn_ping
           B ['bg'] = 'red'
         self.after(1000, self.ping)
       except:
         quit()
-	  
 
     def __init__(self):
       tk.Tk.__init__(self)
